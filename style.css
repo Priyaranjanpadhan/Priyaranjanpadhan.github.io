@@ -29,15 +29,16 @@ h2{
 /* First page */
 .intro{
     background-color: #AFE62B;
-    height: 300px;
+    min-height: 35vh;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 .intro-image{
-    height: 250px;
-    width: 250px;
+    width: 30%;
+    max-width: 250px;
+    aspect-ratio: 1 / 1; /* keeps everything in the aspect ration, width/height, so we don't have to write the height, it will scale itself as per 30% width */
     overflow: hidden;
     border-radius: 50%;
 }
@@ -50,7 +51,7 @@ h2{
 .intro-text{
     text-align: center;
     font-family: "Caveat", cursive;
-    font-size: 50px;
+    font-size: clamp(1.5rem, 5vw, 3rem);
     color: black;
 }
 
@@ -58,17 +59,20 @@ h2{
 /* Qualification */
 .qualification{
     background-color: bisque;
+    min-height: 35vh;
+    padding: 2rem 1rem;
+}
+.qualification-content{
     display: flex;
     justify-content: space-around;
-    height: 200px;
     align-items: center;
-    margin: 0px;
-    padding: 0px;
+    flex-wrap: wrap;
+    gap: 2rem;
 }
 .text-style{
     color: black;
     font-family: "Moon Dance", cursive;
-    font-size: 30px;
+    font-size: clamp(1.2rem, 3vw, 2rem);
 }
 
 
@@ -102,4 +106,17 @@ h2{
 }
 .contact-me a:hover{
     opacity: 0.7;
+}
+
+/* for mobile screen */
+@media (max-width: 600px){
+    .intro{
+        flex-direction: column;
+        gap: 5px;
+    }
+    .contact-me svg{
+        width: 25;
+        height: 25;
+    }
+
 }
